@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stefan Dili — Senior Full Stack Engineer</title>
+<meta name="description" content="Senior full stack engineer in Novi Sad, Serbia. TypeScript, .NET and Node, with greenfield platforms in healthcare and mortgage lending.">
+<meta property="og:title" content="Stefan Dili — Senior Full Stack Engineer">
+<meta property="og:description" content="TypeScript, .NET and Node. Greenfield platforms in healthcare and mortgage lending, plus two products built solo.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88' font-family='monospace'>&lt;/&gt;</text></svg>">
+<script>
+  // Apply the saved theme before first paint so the page never flashes the wrong one.
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Stefan Dili</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="theme" class="theme-btn" type="button" aria-label="Switch colour theme">
+      <span class="theme-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section id="top" class="hero">
+    <p class="eyebrow">Novi Sad, Serbia (CET) · open to remote, EU and US hours</p>
+    <h1>Senior full stack engineer.<br><span class="accent">TypeScript, .NET, Node.</span></h1>
+    <p class="lede">
+      Six years building production web systems, most of them from both sides of the API.
+      My strongest work is frontend architecture in TypeScript, across React, Vue and
+      Angular. On the server it is .NET, Node and Rails.
+    </p>
+    <p class="lede">
+      Most of the last year was greenfield work in regulated industries. Two platforms,
+      healthcare administration and mortgage lending, both from an empty repository to a
+      running system, both mine end to end. On the side I build and maintain two products
+      of my own, one of them heading for the Play Store.
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="mailto:stefan.dili.021@gmail.com">Email me</a>
+      <a class="btn" href="Stefan-Dili-CV.pdf">Download CV (PDF)</a>
+      <a class="btn" href="https://linkedin.com/in/stefan-dili" rel="me noopener" target="_blank">LinkedIn</a>
+      <a class="btn" href="https://github.com/dili021" rel="me noopener" target="_blank">GitHub</a>
+    </div>
+    <ul class="stats">
+      <li><strong>6+</strong><span>years shipping</span></li>
+      <li><strong>2</strong><span>greenfield platforms owned solo</span></li>
+      <li><strong>~40%</strong><span>fewer LLM agent errors after a rules rewrite</span></li>
+      <li><strong>2.5&times;</strong><span>faster delivery on that same team</span></li>
+    </ul>
+  </section>
+
+  <section id="work" class="section">
+    <h2 class="section-title"><span class="num">01</span> Selected work</h2>
+    <p class="section-note">
+      Two products I built alone, from the schema up. Both repositories are private,
+      so what follows is the design thinking rather than a code dump.
+    </p>
+
+    <article class="project">
+      <div class="project-head">
+        <div>
+          <h3>Smenager</h3>
+          <p class="project-role">Sole developer · React Native and Convex · 16 shipped cycles</p>
+        </div>
+        <span class="pill pill-live">Pilot, Play Store prep</span>
+      </div>
+
+      <p>
+        Small venue teams in Serbia run their rota in a Viber group. Someone pins a photo
+        of the schedule, someone else asks to swap Saturday, and by Thursday nobody is sure
+        which photo is current. Smenager replaces that with one live weekly schedule and a
+        real channel for shift wishes.
+      </p>
+      <p>
+        The workflow is deliberately narrow. An admin composes a week, workers file their
+        wishes for it, publishing turns the draft into truth, and after that the schedule
+        only moves through swaps and shift drops. Every one of those moves leaves a record
+        and sends the right push to the right people.
+      </p>
+
+      <h4>Parts I would show a reviewer</h4>
+      <ul class="bullets">
+        <li>
+          <strong>A deterministic auto-draft planner.</strong> Fill an empty week in one tap.
+          It works down a strict priority hierarchy and then runs exact repair sweeps, so the
+          same input always produces the same rota and an admin can argue with the result
+          instead of guessing at it.
+        </li>
+        <li>
+          <strong>Swaps that respect what people actually trade.</strong> A day off is a first
+          class thing to swap, not the absence of a shift, so two people can exchange a
+          Saturday shift for a Tuesday off and the grid stays consistent on both days.
+        </li>
+        <li>
+          <strong>Ops switches with no redeploy.</strong> The auto-draft, the work roles feature,
+          self-serve team creation and the free-plan seat cap are all environment flags. If
+          the planner misbehaves during a pilot, one command hides the button and blocks the
+          mutation.
+        </li>
+        <li>
+          <strong>Documented decisions.</strong> 28 ADRs and one glossary that maps the Serbian
+          domain words to the tables and modules holding them. The code is in English, the
+          product speaks Serbian, and the mapping is written down rather than remembered.
+        </li>
+      </ul>
+
+      <dl class="facts">
+        <div><dt>Scale</dt><dd>~32k lines of TypeScript, 212 test files</dd></div>
+        <div><dt>Method</dt><dd><a href="https://basecamp.com/shapeup" target="_blank" rel="noopener">Shape Up</a>, one shaped bet per cycle</dd></div>
+        <div><dt>Delivery</dt><dd>EAS builds, OTA updates on every master push that touches app JS</dd></div>
+      </dl>
+
+      <ul class="tags">
+        <li>React Native</li><li>Expo SDK 54</li><li>TypeScript</li><li>expo-router</li>
+        <li>Convex</li><li>Next.js</li><li>Vercel</li><li>PostHog</li><li>Vitest</li>
+      </ul>
+
+      <p class="links">
+        <a href="https://smenager.vercel.app" target="_blank" rel="noopener">smenager.vercel.app</a>
+        <span class="muted">Source is private. Happy to walk through it on a call.</span>
+      </p>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <div>
+          <h3>fit_app</h3>
+          <p class="project-role">Sole developer · React 19 and TanStack Start</p>
+        </div>
+        <span class="pill">Personal project</span>
+      </div>
+
+      <p>
+        A training tracker built around mesocycles and movement patterns instead of the usual
+        push/pull/legs split. Sets belong to a pattern, one of push, pull, squat, hinge, lunge
+        or twist, and not to a named exercise. So a five-set push block can be three sets of
+        bench, one of push-ups and one on the pec deck, chosen set by set from a swipeable
+        carousel, and it still counts as five push sets.
+      </p>
+      <p>
+        The premise is that the lifter should decide as little as possible. The app fixes the
+        variables the research is clear about, order, volume, intensity and rest, and leaves
+        exercise choice to whoever is holding the barbell. Don't like the exercise in front of
+        you? Swipe.
+      </p>
+
+      <h4>Parts I would show a reviewer</h4>
+      <ul class="bullets">
+        <li>
+          <strong>Progression without a decision.</strong> Twelve reps or more suggests
+          +2.5 kg next time, under eight suggests &minus;2.5 kg, anything between holds. The
+          suggestion comes from the last logged set of that pattern, not from a plan written
+          weeks ago.
+        </li>
+        <li>
+          <strong>A setup wizard that refuses bad arithmetic.</strong> Weekly set targets have
+          to divide evenly by sessions per week, so it only offers counts that do. Session
+          length updates as you move the sliders, which turns "17 sets per session" into
+          "85 minutes in the gym" before you commit to eight weeks of it.
+        </li>
+        <li>
+          <strong>Biggest rocks first.</strong> Your focus patterns are locked to the front of
+          the session while you are fresh. Maintenance patterns unlock only once the focus
+          work is logged.
+        </li>
+        <li>
+          <strong>A UI built for sweaty hands.</strong> One pattern at a time, full screen,
+          large targets, a rest timer that keeps running under the log, and deload detection
+          when the mesocycle ends.
+        </li>
+      </ul>
+
+      <ul class="tags">
+        <li>React 19</li><li>TanStack Start</li><li>TanStack Router</li><li>TanStack Query</li>
+        <li>Convex</li><li>Better Auth</li><li>Tailwind 4</li><li>shadcn/ui</li>
+        <li>Recharts</li><li>Zod</li><li>Vitest</li>
+      </ul>
+
+      <p class="links">
+        <span class="muted">Private repository. Screens and code on request.</span>
+      </p>
+    </article>
+
+    <article class="project project-muted">
+      <div class="project-head">
+        <div>
+          <h3>Client platforms</h3>
+          <p class="project-role">NextBridgeIT · names withheld under NDA</p>
+        </div>
+        <span class="pill">Production</span>
+      </div>
+      <p>
+        A healthcare administration platform, .NET API and Angular admin dashboard, built from
+        an empty repository. I owned the data model, the API design, authentication and delivery.
+      </p>
+      <p>
+        A mortgage application platform, frontend and backend, where borrower documents are read
+        by an LLM service. I owned the API, the document intake and processing flow, and the
+        application the borrower actually uses.
+      </p>
+      <ul class="tags">
+        <li>.NET</li><li>C#</li><li>Angular</li><li>Blazor</li><li>Azure DevOps</li><li>LLM integration</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="experience" class="section">
+    <h2 class="section-title"><span class="num">02</span> Experience</h2>
+
+    <ol class="timeline">
+      <li>
+        <div class="tl-when">Jun 2026 &ndash; now</div>
+        <div class="tl-body">
+          <h3>Senior software engineer <span class="at">NextBridgeIT</span></h3>
+          <p class="tl-meta">Remote</p>
+          <ul class="bullets">
+            <li>Sole developer on a greenfield healthcare administration platform, .NET API and Angular dashboard.</li>
+            <li>Built a mortgage application platform end to end, including the LLM document-analysis flow.</li>
+            <li>Joined a four-person team on a second healthcare system and took ownership of one module across frontend and backend.</li>
+            <li>Claude is a standard part of my delivery workflow, not an experiment on the side.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="tl-when">Jun 2024 &ndash; Feb 2026</div>
+        <div class="tl-body">
+          <h3>Senior software engineer <span class="at">Grid Dynamics</span></h3>
+          <ul class="bullets">
+            <li>Redesigned the team's LLM agent rules and workflows. Error rates fell by roughly 40% and delivery velocity rose about 2.5&times;.</li>
+            <li>Led a scheduling and geolocation module for a national US apparel retailer, live across their store network.</li>
+            <li>Shipped through a Jenkins canary pipeline, validating each rollout against New Relic telemetry before promotion.</li>
+            <li>Implemented OAuth with PKCE. Worked across Ember.js and Vue codebases.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="tl-when">Mar 2022 &ndash; Mar 2023</div>
+        <div class="tl-body">
+          <h3>Software engineer <span class="at">Symphony</span></h3>
+          <ul class="bullets">
+            <li>Frontend architecture for a React and Next.js application.</li>
+            <li>Microfrontends with Webpack Module Federation.</li>
+            <li>Designed a hybrid HTTP and WebSocket communication model.</li>
+            <li>Okta and OIDC authentication, plus Node.js services in a microservices setup.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="tl-when">Dec 2020 &ndash; Sep 2021<br>Mar 2023 &ndash; Jun 2024</div>
+        <div class="tl-body">
+          <h3>Frontend developer, then developer and product manager <span class="at">Cramick-IT</span></h3>
+          <ul class="bullets">
+            <li>Built a user-facing product's frontend from an empty repository through to pre-release.</li>
+            <li>Led the Vue 2 to Vue 3 migration across two codebases, the larger one around ten modules, and introduced TypeScript to both.</li>
+            <li>Built Vue and Quasar component libraries other teams used.</li>
+            <li>Took product ownership: shaped how features behaved, and replaced standing meetings with async workflows and clearer ownership.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="tl-when">Jan &ndash; Oct 2020</div>
+        <div class="tl-body">
+          <h3>Full-stack web development <span class="at">Microverse</span></h3>
+          <p class="tl-meta">Education</p>
+          <p class="tl-plain">1,500+ hours of remote work in distributed teams. Pair programming, code review, daily standups, JavaScript, React, Rails and SQL.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="skills" class="section">
+    <h2 class="section-title"><span class="num">03</span> Skills</h2>
+    <div class="skills">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <ul class="tags"><li>TypeScript</li><li>JavaScript</li><li>C#</li><li>Ruby</li><li>SQL</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Frontend</h3>
+        <ul class="tags"><li>React</li><li>Next.js</li><li>Vue 2/3</li><li>Angular</li><li>Blazor</li><li>TanStack Query</li><li>Redux</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Backend</h3>
+        <ul class="tags"><li>Node.js</li><li>.NET</li><li>Ruby on Rails</li><li>PostgreSQL</li><li>REST</li><li>GraphQL</li><li>WebSockets</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>AI-assisted delivery</h3>
+        <ul class="tags"><li>Claude</li><li>Cursor</li><li>LLM integration</li><li>Agent workflow design</li><li>Document-analysis pipelines</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Platform and ops</h3>
+        <ul class="tags"><li>Azure DevOps</li><li>Jenkins</li><li>Canary releases</li><li>Docker</li><li>Git</li><li>Linux</li><li>New Relic</li><li>PostHog</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Auth and security</h3>
+        <ul class="tags"><li>OAuth 2.0</li><li>PKCE</li><li>OIDC</li><li>Okta</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Testing</h3>
+        <ul class="tags"><li>Cypress</li><li>Jest</li><li>Vitest</li><li>RSpec</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section section-contact">
+    <h2 class="section-title"><span class="num">04</span> Contact</h2>
+    <p class="lede">
+      I am open to remote roles on EU or US hours.
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="mailto:stefan.dili.021@gmail.com">Email me</a>
+      <a class="btn" href="https://linkedin.com/in/stefan-dili" rel="me noopener" target="_blank">LinkedIn</a>
+      <a class="btn" href="https://github.com/dili021" rel="me noopener" target="_blank">GitHub</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Stefan Dili · Novi Sad, Serbia</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
