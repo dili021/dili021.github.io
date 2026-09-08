@@ -357,16 +357,14 @@ h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.015em; }
 .bullets strong { color: var(--text); font-weight: 600; }
 
 /* Three artboards of identical proportion, so equal columns keep them level.
-   The cap holds them at phone scale; clicking one opens it full size. */
+   They take the full card width; clicking one opens it full size. */
 .shots {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: start;
-  gap: 14px;
-  margin: 16px 0 0;
-  max-width: 520px;
+  gap: 18px;
+  margin: 24px 0 4px;
 }
-.shots-note { margin-bottom: 6px !important; }
 .shots figure { margin: 0; min-width: 0; }
 .shots a {
   display: block;
@@ -394,14 +392,13 @@ h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.015em; }
 @media (max-width: 640px) {
   .shots {
     display: flex;
-    max-width: none;
     overflow-x: auto;
     gap: 14px;
     padding-bottom: 8px;
     scroll-snap-type: x proximity;
     overscroll-behavior-x: contain;
   }
-  .shots figure { flex: 0 0 150px; scroll-snap-align: start; }
+  .shots figure { flex: 0 0 170px; scroll-snap-align: start; }
 }
 
 .facts {
