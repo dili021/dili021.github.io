@@ -113,8 +113,14 @@ function sketch(seed) {
       color: cs[`border${s}Color`],
     }));
 
-    // Leave the note exactly as the CSS drew it, fill and flap included.
-    if (isStickyNote(sides)) continue;
+    // A note keeps its fill and its flap, and loses everything else. The app
+    // gives the card no border at all: only the head strip reads as an edge.
+    if (isStickyNote(sides)) {
+      el.style.borderRightColor = 'transparent';
+      el.style.borderBottomColor = 'transparent';
+      el.style.borderLeftColor = 'transparent';
+      continue;
+    }
 
     const bg = cs.backgroundColor;
     if (bg && bg !== TRANSPARENT && bg !== PAPER) {
