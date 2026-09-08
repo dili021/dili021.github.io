@@ -31,6 +31,12 @@ alone: the app wobbles the chrome, not the lettering. Roughness eases off on sma
 elements, because Rough.js displaces by absolute pixels and full roughness turns a
 12px status square into a wedge.
 
+Two things stay out of the Rough.js pass. The artboard's own frame is stripped, so
+there is no border around the whole phone. And sticky notes keep flat edges and a
+solid fill: `board-tab.tsx` draws them as plain rectangles with a head strip and a
+small skew, never through `RoughBox`. A note is recognised by its thick top border,
+the glued flap, which is also what separates it from a button.
+
 ```bash
 node tools/render-screens.mjs /tmp/screens
 ```

@@ -24,6 +24,15 @@ function easeRough(minDim) {
   return { roughness: ROUGHNESS * t, bowing: BOWING * t };
 }
 
+// Sticky notes stay flat. board-tab.tsx draws them as plain rectangles with a
+// solid head strip and a small skew, never through RoughBox, so a wobbly
+// outline and a hachure fill would both be wrong. The thick top border is the
+// glued flap, and it is what tells a note apart from a button.
+function isStickyNote(sides) {
+  const [top, right, bottom, left] = sides;
+  return top.width >= 6 && [right, bottom, left].every((s) => s.width < top.width);
+}
+
 function sketch(seed) {
   const gen = rough.generator();
   const root = document.querySelector('.artboard');
@@ -99,6 +108,14 @@ function sketch(seed) {
     const x = r.left - rootBox.left;
     const y = r.top - rootBox.top;
 
+    const sides = ['Top', 'Right', 'Bottom', 'Left'].map((s) => ({
+      width: parseFloat(cs[`border${s}Width`]) || 0,
+      color: cs[`border${s}Color`],
+    }));
+
+    // Leave the note exactly as the CSS drew it, fill and flap included.
+    if (isStickyNote(sides)) continue;
+
     const bg = cs.backgroundColor;
     if (bg && bg !== TRANSPARENT && bg !== PAPER) {
       const hachure = Math.min(w, h) >= HACHURE_MIN;
@@ -115,10 +132,6 @@ function sketch(seed) {
       el.style.backgroundColor = 'transparent';
     }
 
-    const sides = ['Top', 'Right', 'Bottom', 'Left'].map((s) => ({
-      width: parseFloat(cs[`border${s}Width`]) || 0,
-      color: cs[`border${s}Color`],
-    }));
     const visible = sides.filter((s) => s.width > 0 && s.color !== TRANSPARENT);
     if (!visible.length) continue;
 

@@ -68,7 +68,7 @@ const page = (screen, seed) => `<!DOCTYPE html>
     padding: ${PAD}px;
   }
 </style></head><body>
-${screen.replace('<div ', `<div class="artboard" `)}
+${screen}
 <script src="./rough.js"></script>
 <script>window.__SEED__ = ${seed};</script>
 <script src="./sketch-pass.js"></script>
@@ -80,8 +80,17 @@ const src = await readFile(SRC, 'utf8');
 
 for (const { label, file, seed } of WANTED) {
   let screen = extractElement(src, `data-screen-label="${label}"`);
-  // The drop shadow would be clipped by a viewport-tight screenshot.
-  screen = screen.replace(/;box-shadow:2px 3px 0 rgba\(80,70,40,\.10\)/, '');
+
+  // Rewrite the artboard's own opening tag only. Its style values (the border,
+  // the shadow) repeat all through the markup, so a blind replace would hit the
+  // wrong element.
+  const tagEnd = screen.indexOf('>') + 1;
+  const openTag = screen
+    .slice(0, tagEnd)
+    .replace(/;box-shadow:2px 3px 0 rgba\(80,70,40,\.10\)/, '')
+    .replace(/border:2px solid #1b1b1f;/, '') // no frame around the whole phone
+    .replace('<div ', '<div class="artboard" ');
+  screen = openTag + screen.slice(tagEnd);
 
   const removed = [];
   for (const needle of DROP) {
