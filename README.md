@@ -3,12 +3,13 @@
 Four files, no build step, no dependencies.
 
 ```
-index.html                  content
-styles.css                  all styling, dark by default, light via toggle or system preference
-script.js                   theme toggle, scroll spy, reveal on scroll
-Stefan-Dili-CV.pdf          linked from the hero
-screenshot-login.jpg        Smenager screens, copied from its docs/marketing folder
-screenshot-week-worker.jpg
+index.html             content
+styles.css             all styling, dark by default, light via toggle or system preference
+script.js              theme toggle, scroll spy, reveal on scroll
+Stefan-Dili-CV.pdf     linked from the hero
+smenager-today.png     three Smenager artboards, rendered from the Claude Design canvas
+smenager-requests.png  "Smenager - strukturni predlozi.dc.html", row 2a, screens 1, 5 and 6
+smenager-hours.png     at 340x860 CSS px, headless Chrome at 2x
 ```
 
 Open `index.html` in a browser and it works. Nothing is fetched from a CDN, so it

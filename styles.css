@@ -356,28 +356,33 @@ h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.015em; }
 }
 .bullets strong { color: var(--text); font-weight: 600; }
 
-/* Column widths track each image's aspect ratio, so both render the same height.
-   The cap holds the pair at phone scale; clicking one opens it full size. */
+/* Three artboards of identical proportion, so equal columns keep them level.
+   The cap holds them at phone scale; clicking one opens it full size. */
 .shots {
   display: grid;
-  grid-template-columns: 0.96fr 0.67fr;
+  grid-template-columns: repeat(3, 1fr);
   align-items: start;
-  gap: 16px;
+  gap: 14px;
   margin: 16px 0 0;
-  max-width: 460px;
+  max-width: 520px;
 }
 .shots-note { margin-bottom: 6px !important; }
 .shots figure { margin: 0; min-width: 0; }
-.shots a { display: block; cursor: zoom-in; }
+.shots a {
+  display: block;
+  cursor: zoom-in;
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+  transition: outline-color .15s ease;
+}
+.shots a:hover, .shots a:focus-visible { outline-color: var(--accent); }
+/* Each artboard carries its own black frame, so no border here. */
 .shots img {
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fdfbf3;
+  background: #fdfcf7;
 }
-.shots a:hover img { border-color: var(--accent); }
 .shots figcaption {
   margin-top: 9px;
   font-size: 13px;
@@ -385,8 +390,18 @@ h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.015em; }
   color: var(--text-faint);
 }
 
-@media (max-width: 560px) {
-  .shots { grid-template-columns: 1fr; gap: 22px; max-width: 240px; }
+/* Too narrow for three columns: give them their own scroll rather than shrink them. */
+@media (max-width: 640px) {
+  .shots {
+    display: flex;
+    max-width: none;
+    overflow-x: auto;
+    gap: 14px;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+  }
+  .shots figure { flex: 0 0 150px; scroll-snap-align: start; }
 }
 
 .facts {
