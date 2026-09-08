@@ -33,6 +33,25 @@ function isStickyNote(sides) {
   return top.width >= 6 && [right, bottom, left].every((s) => s.width < top.width);
 }
 
+// seedFrom from src/components/sketch/rough.ts, so a note leans the same way
+// on every render.
+function seedFrom(key) {
+  const s = String(key);
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return Math.abs(h) % 2 ** 31;
+}
+
+// stickyTilt from board-tab.tsx: real sticky notes never sit dead straight.
+// A skew rather than a rotate, anchored at the top, so the glued flap stays
+// flat while the sides slant away from it.
+function stickyTilt(key) {
+  return (seedFrom(key) % 5) - 2;
+}
+
 function sketch(seed) {
   const gen = rough.generator();
   const root = document.querySelector('.artboard');
@@ -95,6 +114,7 @@ function sketch(seed) {
   }
 
   const all = [root, ...root.querySelectorAll('*')];
+  const notes = [];
 
   for (const el of all) {
     if (el.tagName === 'svg' || el.closest('svg')) continue;
@@ -119,6 +139,8 @@ function sketch(seed) {
       el.style.borderRightColor = 'transparent';
       el.style.borderBottomColor = 'transparent';
       el.style.borderLeftColor = 'transparent';
+      // Tilted after the loop, so the skew cannot disturb anyone else's measurement.
+      notes.push(el);
       continue;
     }
 
@@ -167,7 +189,18 @@ function sketch(seed) {
     el.style.borderColor = 'transparent';
   }
 
+  // The app keys the lean on a note id. An artboard has none, so position plus
+  // content stands in: stable across renders, distinct between notes.
+  const tilts = [];
+  notes.forEach((note, i) => {
+    const deg = stickyTilt(`${i}:${note.textContent.trim()}`);
+    note.style.transformOrigin = '50% 0%';
+    note.style.transform = `skewX(${deg}deg)`;
+    tilts.push(deg);
+  });
+
   document.documentElement.dataset.sketched = 'done';
+  document.documentElement.dataset.tilts = tilts.join(',');
 }
 
 document.fonts.ready.then(() => {
