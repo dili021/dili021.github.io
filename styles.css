@@ -356,6 +356,35 @@ h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.015em; }
 }
 .bullets strong { color: var(--text); font-weight: 600; }
 
+/* Column widths track each image's aspect ratio, so both render the same height. */
+.shots {
+  display: grid;
+  grid-template-columns: 0.96fr 0.67fr;
+  align-items: start;
+  gap: 18px;
+  margin: 16px 0 0;
+}
+.shots-note { margin-bottom: 6px !important; }
+.shots figure { margin: 0; min-width: 0; }
+.shots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fdfbf3;
+}
+.shots figcaption {
+  margin-top: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-faint);
+}
+
+@media (max-width: 560px) {
+  .shots { grid-template-columns: 1fr; gap: 24px; }
+}
+
 .facts {
   margin: 24px 0 0;
   display: grid;

@@ -3,10 +3,12 @@
 Four files, no build step, no dependencies.
 
 ```
-index.html          content
-styles.css          all styling, dark by default, light via toggle or system preference
-script.js           theme toggle, scroll spy, reveal on scroll
-Stefan-Dili-CV.pdf  linked from the hero
+index.html                  content
+styles.css                  all styling, dark by default, light via toggle or system preference
+script.js                   theme toggle, scroll spy, reveal on scroll
+Stefan-Dili-CV.pdf          linked from the hero
+screenshot-login.jpg        Smenager screens, copied from its docs/marketing folder
+screenshot-week-worker.jpg
 ```
 
 Open `index.html` in a browser and it works. Nothing is fetched from a CDN, so it
@@ -35,7 +37,7 @@ values. Change `--accent` in all three to reskin the site.
 
 ## Things worth checking before you publish
 
-- The CV PDF is a copy taken on 2026-09-04. Replace it when the CV changes.
+- The CV PDF is a copy taken on 2026-09-08. Replace it when the CV changes.
 - Smenager links to `smenager.vercel.app`. Swap in the real domain once it points there.
 - Both project repositories are private, so the page says so rather than linking dead URLs.
   Add links if you ever open them.
