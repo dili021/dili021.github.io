@@ -356,33 +356,37 @@ h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.015em; }
 }
 .bullets strong { color: var(--text); font-weight: 600; }
 
-/* Column widths track each image's aspect ratio, so both render the same height. */
+/* Column widths track each image's aspect ratio, so both render the same height.
+   The cap holds the pair at phone scale; clicking one opens it full size. */
 .shots {
   display: grid;
   grid-template-columns: 0.96fr 0.67fr;
   align-items: start;
-  gap: 18px;
+  gap: 16px;
   margin: 16px 0 0;
+  max-width: 460px;
 }
 .shots-note { margin-bottom: 6px !important; }
 .shots figure { margin: 0; min-width: 0; }
+.shots a { display: block; cursor: zoom-in; }
 .shots img {
   display: block;
   width: 100%;
   height: auto;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 8px;
   background: #fdfbf3;
 }
+.shots a:hover img { border-color: var(--accent); }
 .shots figcaption {
-  margin-top: 10px;
-  font-size: 13.5px;
-  line-height: 1.5;
+  margin-top: 9px;
+  font-size: 13px;
+  line-height: 1.45;
   color: var(--text-faint);
 }
 
 @media (max-width: 560px) {
-  .shots { grid-template-columns: 1fr; gap: 24px; }
+  .shots { grid-template-columns: 1fr; gap: 22px; max-width: 240px; }
 }
 
 .facts {
