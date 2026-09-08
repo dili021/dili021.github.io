@@ -70,7 +70,6 @@ values. Change `--accent` in all three to reskin the site.
 ## Things worth checking before you publish
 
 - The CV PDF is a copy taken on 2026-09-08. Replace it when the CV changes.
-- Smenager links to `smenager.vercel.app`. Swap in the real domain once it points there.
 - Both project repositories are private, so the page says so rather than linking dead URLs.
   Add links if you ever open them.
 - There is no analytics and no fonts from Google. Add either deliberately if you want them.
