@@ -381,6 +381,11 @@ h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.015em; }
   height: auto;
   background: #fdfcf7;
 }
+/* App screenshots have no frame of their own, so they get a hairline. */
+.shots-framed img {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
 .shots figcaption {
   margin-top: 9px;
   font-size: 13px;

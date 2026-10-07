@@ -12,6 +12,9 @@ Stefan-Dili-CV.pdf     linked from the hero
 smenager-today.png     three Smenager artboards, see "Re-rendering the screens"
 smenager-requests.png
 smenager-hours.png
+fit-app-patterns.png   three fit_app screenshots, 356x876 at 2x like the Smenager ones
+fit-app-workout.png
+fit-app-progress.png
 tools/                 the renderer for those three, not shipped with the site
 ```
 
