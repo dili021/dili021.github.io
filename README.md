@@ -1,5 +1,7 @@
 # Portfolio site
 
+Live at https://dili021.github.io/
+
 No build step and no dependencies.
 
 ```
@@ -70,6 +72,6 @@ values. Change `--accent` in all three to reskin the site.
 ## Things worth checking before you publish
 
 - The CV PDF is a copy taken on 2026-09-08. Replace it when the CV changes.
-- Both project repositories are private, so the page says so rather than linking dead URLs.
-  Add links if you ever open them.
+- fit_app is public and the page links to it. The Smenager repository is private, so the
+  page says so rather than linking a dead URL. Add a link if you ever open it.
 - There is no analytics and no fonts from Google. Add either deliberately if you want them.
